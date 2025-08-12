@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../src/Modal.tsx"],
-  "sourcesContent": ["import React from 'react';\nimport ReactDOM from 'react-dom';\n\ninterface ModalProps {\n  isOpen: boolean;\n  onClose: () => void;\n  children: React.ReactNode;\n}\n\nexport const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {\n  if (!isOpen) return null;\n\n  return ReactDOM.createPortal(\n    <div className=\"fixed inset-0 z-50 flex items-center justify-center\">\n      <div\n        className=\"fixed inset-0 bg-black bg-opacity-50 transition-opacity\"\n        onClick={onClose}\n      />\n\n      <div className=\"relative z-10 bg-white rounded-lg shadow-lg p-6 max-w-md w-full\">\n        {children}\n      </div>\n    </div>,\n    document.body\n  );\n};\n"],
-  "mappings": "AACA,OAAOA,MAAc,YAYjB,OACE,OAAAC,EADF,QAAAC,MAAA,oBAJG,IAAMC,EAA8B,CAAC,CAAE,OAAAC,EAAQ,QAAAC,EAAS,SAAAC,CAAS,IACjEF,EAEEJ,EAAS,aACdE,EAAC,OAAI,UAAU,sDACb,UAAAD,EAAC,OACC,UAAU,0DACV,QAASI,EACX,EAEAJ,EAAC,OAAI,UAAU,kEACZ,SAAAK,EACH,GACF,EACA,SAAS,IACX,EAdoB",
-  "names": ["ReactDOM", "jsx", "jsxs", "Modal", "isOpen", "onClose", "children"]
+  "sourcesContent": ["import React from 'react';\nimport ReactDOM from 'react-dom';\n\ninterface ModalProps {\n  isOpen: boolean;\n  onClose: () => void;\n  children: React.ReactNode;\n}\n\nexport const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {\n  if (!isOpen) return null;\n\n  return ReactDOM.createPortal(\n    <div className=\"fixed inset-0 z-50 flex items-center justify-center\">\n      <div\n        className=\"fixed inset-0 bg-black/35 transition-opacity flex items-center justify-center\"\n      >\n        <div className=\"relative z-10 bg-white rounded-lg shadow-lg p-6 max-w-md w-full\">\n          {children}\n        </div>\n      </div>\n    </div>,\n    document.body\n  );\n};\n"],
+  "mappings": "AACA,OAAOA,MAAc,YAgBb,cAAAC,MAAA,oBARD,IAAMC,EAA8B,CAAC,CAAE,OAAAC,EAAQ,QAAAC,EAAS,SAAAC,CAAS,IACjEF,EAEEH,EAAS,aACdC,EAAC,OAAI,UAAU,sDACb,SAAAA,EAAC,OACC,UAAU,gFAEV,SAAAA,EAAC,OAAI,UAAU,kEACZ,SAAAI,EACH,EACF,EACF,EACA,SAAS,IACX,EAboB",
+  "names": ["ReactDOM", "jsx", "Modal", "isOpen", "onClose", "children"]
 }
