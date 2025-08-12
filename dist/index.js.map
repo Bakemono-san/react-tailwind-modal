@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../src/Modal.tsx"],
-  "sourcesContent": ["import React from \"react\";\n\ntype ModalProps = {\n  isOpen: boolean;\n  onClose: () => void;\n  children: React.ReactNode;\n};\n\nexport const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {\n  if (!isOpen) return null;\n\n  return (\n    <div className=\"fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50\">\n      <div className=\"bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative\">\n        <button\n          onClick={onClose}\n          className=\"absolute top-2 right-2 text-gray-500 hover:text-gray-800\"\n        >\n          \u2715\n        </button>\n        {children}\n      </div>\n    </div>\n  );\n};\n"],
-  "mappings": "AAaM,OACE,OAAAA,EADF,QAAAC,MAAA,oBALC,IAAMC,EAA8B,CAAC,CAAE,OAAAC,EAAQ,QAAAC,EAAS,SAAAC,CAAS,IACjEF,EAGHH,EAAC,OAAI,UAAU,6EACb,SAAAC,EAAC,OAAI,UAAU,6DACb,UAAAD,EAAC,UACC,QAASI,EACT,UAAU,2DACX,kBAED,EACCC,GACH,EACF,EAbkB",
-  "names": ["jsx", "jsxs", "Modal", "isOpen", "onClose", "children"]
+  "sourcesContent": ["import React from 'react';\nimport ReactDOM from 'react-dom';\n\ninterface ModalProps {\n  isOpen: boolean;\n  onClose: () => void;\n  children: React.ReactNode;\n}\n\nexport const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {\n  if (!isOpen) return null;\n\n  return ReactDOM.createPortal(\n    <div className=\"fixed inset-0 z-50 flex items-center justify-center\">\n      <div\n        className=\"fixed inset-0 bg-black bg-opacity-50 transition-opacity\"\n        onClick={onClose}\n      />\n\n      <div className=\"relative z-10 bg-white rounded-lg shadow-lg p-6 max-w-md w-full\">\n        {children}\n      </div>\n    </div>,\n    document.body\n  );\n};\n"],
+  "mappings": "AACA,OAAOA,MAAc,YAYjB,OACE,OAAAC,EADF,QAAAC,MAAA,oBAJG,IAAMC,EAA8B,CAAC,CAAE,OAAAC,EAAQ,QAAAC,EAAS,SAAAC,CAAS,IACjEF,EAEEJ,EAAS,aACdE,EAAC,OAAI,UAAU,sDACb,UAAAD,EAAC,OACC,UAAU,0DACV,QAASI,EACX,EAEAJ,EAAC,OAAI,UAAU,kEACZ,SAAAK,EACH,GACF,EACA,SAAS,IACX,EAdoB",
+  "names": ["ReactDOM", "jsx", "jsxs", "Modal", "isOpen", "onClose", "children"]
 }
